@@ -9,18 +9,18 @@ export default {
 
   // ── Business identity ──────────────────────────────────
   businessName: "HamiltonVolt",
-  tagline: "Sub-metering installation",
+  tagline: "Sub-metering for rental properties",
   serviceArea: "Hamilton & Burlington, ON",
 
   // ── Contact ────────────────────────────────────────────
   // Phone number displayed on the site (formatted)
-  phoneDisplay: "(905) 555-0199",
+  phoneDisplay: "(289) 799-8573",
   // Phone number for tel: links (E.164 format, no spaces)
-  phoneLink: "+19055550199",
+  phoneLink: "+12897998573",
   // WhatsApp number (digits only, with country code, no + sign)
-  whatsappNumber: "19055550199",
-  // Pre-filled WhatsApp message
-  whatsappMessage: "Hi HamiltonVolt, I'd like a free quote for sub-metering my property.",
+  whatsappNumber: "12897998573",
+  // Pre-filled WhatsApp message (pre-qualifies the lead)
+  whatsappMessage: "Hi HamiltonVolt, I have ___ units in ___ (neighbourhood) and I'd like to know if sub-metering works for my property.",
 
   // ── Address & location ─────────────────────────────────
   address: {
@@ -37,32 +37,27 @@ export default {
   },
 
   // ── Trust bar stats ────────────────────────────────────
-  // Set to real numbers or set showTrustBar to false to hide
-  showTrustBar: true,
+  // Hidden until we have real numbers — no fake stats
+  showTrustBar: false,
   stats: {
-    properties: "50+",      // e.g. "50+" or "73"
-    units: "200+",           // e.g. "200+" or "312"
-    monthlyFees: "$0",       // keep as-is
-    installTime: "1 Day",    // keep as-is
+    properties: "—",
+    units: "—",
+    monthlyFees: "$0",
+    installTime: "< 1 Hour",
   },
 
   // ── Testimonials ───────────────────────────────────────
-  // Set to real testimonials or set showTestimonials to false to hide
-  showTestimonials: true,
-  testimonials: [
-    {
-      quote: "I was paying $480/month in hydro for a fourplex and couldn't figure out why. HamiltonVolt installed meters in one afternoon — turns out one unit was using more than the other three combined. Paid for itself in two months.",
-      name: "Mark T.",
-      detail: "Fourplex owner, Hamilton Mountain",
-      stars: 5,
-    },
-    {
-      quote: "My biggest fear was the install tearing up the building. They literally clipped the meters on and left. My tenants didn't even notice until I told them they'd be paying their own hydro. Zero complaints — the usage data is right there.",
-      name: "Sandra K.",
-      detail: "Triplex owner, Burlington",
-      stars: 5,
-    },
-  ],
+  // Hidden — no customers yet. Will enable when we have real testimonials.
+  showTestimonials: false,
+  testimonials: [],
+
+  // ── Founder ────────────────────────────────────────────
+  founder: {
+    name: "[Your Name]",           // Replace with real name
+    photo: "",                      // Replace with real photo path
+    bio: "I started HamiltonVolt after watching a friend lose thousands on hydro bills for his fourplex. The solution existed — clip-on meters that measure each unit — but nobody in Hamilton was making it easy for landlords to get started. That's what we do.",
+    background: "Hamilton-based. Background in property management and building systems.",
+  },
 
   // ── Pricing (shown in FAQ) ─────────────────────────────
   pricing: {
@@ -70,6 +65,9 @@ export default {
     fourplexTotal: "$1,200–$2,000",
     roiMonths: "3–5",
   },
+
+  // ── Scheduling (for soft scarcity in CTA) ──────────────
+  inspectionsPerWeek: "5",
 
   // ── URLs ───────────────────────────────────────────────
   siteUrl: "https://voltshare.ca",
@@ -87,17 +85,20 @@ export default {
   },
 
   // ── Neighbourhoods (for footer & schema) ──────────────
+  // Curated for rental density — neighbourhoods with the most multi-unit properties
   neighbourhoods: {
     hamilton: [
-      "Hamilton Mountain", "Downtown Hamilton", "Westdale", "Stoney Creek",
-      "Dundas", "Ancaster", "Bartonville", "Binbrook", "Crown Point",
-      "Kirkendall", "Stipley", "Delta", "Corktown", "Beasley", "Landsdale"
+      "Downtown Hamilton", "Hamilton Mountain", "Westdale",
+      "Crown Point", "Beasley", "Kirkendall",
+      "Corktown", "Bartonville", "Delta",
+      "Landsdale", "Stoney Creek", "Dundas",
+      "Stipley", "Central Hamilton", "Gibson"
     ],
     burlington: [
-      "Downtown Burlington", "Aldershot", "Appleby", "Brant Hills",
-      "Tyandaga", "Orchard", "Palmer", "Headon Forest", "Millcroft",
-      "Roseland", "Shoreacres", "Elizabeth Gardens", "Maple",
-      "Mountainside", "Central Burlington"
+      "Downtown Burlington", "Aldershot", "Central Burlington",
+      "Appleby", "Elizabeth Gardens", "Maple",
+      "Brant Hills", "Orchard", "Tyandaga",
+      "Palmer", "Roseland"
     ],
   },
 
@@ -105,8 +106,8 @@ export default {
   faq: [
     {
       question: "Is sub-metering legal in Ontario?",
-      answer: "Yes. Ontario Regulation 394/10 under the <em>Electricity Act</em> gives landlords the right to install sub-meters and bill tenants for individual electricity usage, as long as meters are Measurement Canada certified and tenants receive proper notice. We handle all compliance paperwork.",
-      schemaAnswer: "Yes. Ontario Regulation 394/10 under the Electricity Act gives landlords the right to install sub-meters and bill tenants for individual electricity usage, as long as meters are Measurement Canada certified and tenants receive proper notice."
+      answer: "Yes. Ontario Regulation 394/10 under the <em>Electricity Act</em> gives landlords the right to install sub-meters and bill tenants for individual electricity usage, as long as tenants receive proper notice. We walk you through the entire compliance process.",
+      schemaAnswer: "Yes. Ontario Regulation 394/10 under the Electricity Act gives landlords the right to install sub-meters and bill tenants for individual electricity usage, as long as tenants receive proper notice."
     },
     {
       question: "How much does it cost?",
@@ -122,10 +123,19 @@ export default {
       question: "What types of properties work?",
       answer: "Duplexes, triplexes, fourplexes, townhouse blocks, and apartment buildings across Hamilton and Burlington. If you have 2+ units sharing one meter, sub-metering will almost certainly work. The free inspection confirms it for your specific property.",
       schemaAnswer: "Duplexes, triplexes, fourplexes, townhouse blocks, and apartment buildings. If you have 2 or more units sharing one meter, sub-metering will almost certainly work."
+    },
+    {
+      question: "Do I need an electrician for this?",
+      answer: "No. Our meters are clip-on devices (current transformers) that clamp around the existing wire without touching it. Nothing gets cut, spliced, or modified. No permits, no electrical inspection, no licensed electrician required. It's closer to installing a smart thermostat than doing electrical work.",
+      schemaAnswer: "No. The meters are clip-on devices (current transformers) that clamp around the existing wire without touching it. Nothing gets cut, spliced, or modified. No permits or electrical inspection required."
+    },
+    {
+      question: "What if I want to remove them later?",
+      answer: "The clip comes off and your panel goes back to exactly how it was. Zero trace. There's nothing permanent about the installation — no holes, no rewiring, no residue. If you sell the property or change your mind, removal takes minutes.",
+      schemaAnswer: "The clip comes off and your panel goes back to exactly how it was. Zero trace. Nothing permanent about the installation."
     }
   ],
 
   // ── Footer ─────────────────────────────────────────────
   copyrightYear: "2026",
-  license: "Licensed and insured in Ontario",
 };

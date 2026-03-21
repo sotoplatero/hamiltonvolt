@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/soto/projects/hamiltonvolt -not -path */node_modules/* -not -path */_site/* -not -path */.git/* -type d)",
+      "Bash(npm run:*)"
+    ]
+  }
+}
